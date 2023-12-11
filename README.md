@@ -1,18 +1,8 @@
-# create-svelte
+# Where to watch Next Cycling Race
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Here is a small project built by the community and for the community, to help us all watch our favorite race in the best condition. This is a community feed book that indexes every broadcast of a race per country.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Please note that this project has gained higher interest since the fall of gnc+.
 
 ## Developing
 
@@ -25,18 +15,15 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Technologie Stack
 
-To create a production version of your app:
+- SvelteKit + Tailwind (Front)
+- Primsa (ORM)
+- PlanetScale (Database)
 
-```bash
-npm run build
-```
+[here](https://www.scott.is/writing/about/building-a-microblog-with-svelte-planetscale-and-prisma) is a guide on how to setup a similar strcture
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
+## Database
 
 ```mermaid
 erDiagram
