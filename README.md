@@ -36,3 +36,45 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+
+```mermaid
+erDiagram
+  Race ||--o{ Broadcast : "raceId"
+  BroadcastType ||--o{ Broadcast : "broadcastTypeId"
+  User ||--o{ Vote : "UserId"
+  Broadcast ||--o{ Vote : "BroadcastId"
+
+  Race {
+    id Int
+    name String
+    contry String
+    category String
+    date DateTime
+  }
+
+  BroadcastType {
+    id Int
+    code String
+    label String
+  }
+
+  Broadcast {
+    id Int
+    name String
+    link String
+    publishTime DateTime
+  }
+
+  User {
+    id Int
+    mail String
+    pass String
+    score Int
+  }
+
+  Vote {
+    possitive Boolean
+  }
+
+```

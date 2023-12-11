@@ -10,3 +10,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Race {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(255)
+  contry    String      @db.VarChar(50)
+  category  String      @db.VarChar(50)
+  date      DateTime
+  Broadcast Broadcast[]
+}
+
+model BroadcastType {
+  id        Int         @id @default(autoincrement())
+  code      String      @db.VarChar(5)
+  label     String      @db.VarChar(50)
+  Broadcast Broadcast[]
+}
+
+model Broadcast {
+  id              Int           @id @default(autoincrement())
+  race            Race          @relation(fields: [raceId], references: [id])
+  raceId          Int
+  name            String        @db.VarChar(50)
+  link            String        @db.VarChar(500)
+  broadcastTypeId Int
+  broadcastType   BroadcastType @relation(fields: [broadcastTypeId], references: [id])
+  publishTime     DateTime      @default(now())
+  Vote            Vote[]
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  mail  String @db.VarChar(50)
+  pass  String @db.VarChar(50)
+  score Int    @default(1)
+  Vote  Vote[]
+}
+
+model Vote {
+  UserId      Int     @map("user_id")
+  BroadcastId Int     @map("broadcast_id")
+  possitive   Boolean @default(false)
+
+  User      User      @relation(fields: [UserId], references: [id])
+  Broadcast Broadcast @relation(fields: [BroadcastId], references: [id])
+
+  @@id([UserId, BroadcastId])
+}
