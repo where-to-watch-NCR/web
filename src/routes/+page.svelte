@@ -1,2 +1,20 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import type { PageData } from './$types'
+    import type { Race } from '@prisma/client';
+
+    export let data: PageData
+
+    const races: Race[] = data.props.races;
+
+  </script>
+
+  {#if races}
+    <ul>
+      {#each races as race (race.id)}
+        <li class="mb-2">
+          <span class="font-bold">{race.name}</span> - {race.date}
+        </li>
+      {/each}
+    </ul>
+  {/if}
+  
