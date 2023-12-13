@@ -4,6 +4,10 @@ Here is a small project built by the community and for the community, to help us
 
 Please note that this project has gained higher interest since the fall of gnc+.
 
+![illustration](https://github.com/where-to-watch-NCR/web/assets/37497007/1a199556-8006-4279-81ea-1fc909096a89)
+
+
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `bun install` ), start a development server:
