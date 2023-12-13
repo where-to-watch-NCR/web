@@ -7,7 +7,7 @@
     const races: Race[] = data.props.races;
 
   </script>
-
+<a href="/me">profile</a>
   {#if races}
     <ul>
       {#each races as race (race.id)}

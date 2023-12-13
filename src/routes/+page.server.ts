@@ -1,8 +1,9 @@
 import { PrismaClient } from '@prisma/client'
 import type { PageServerLoad } from './$types';
+import prismaClient from '$lib/server/prisma';
 
 export const load: PageServerLoad  = async () => {
-  const prisma = new PrismaClient();
+  const prisma = prismaClient;
   
   try {
     const races = await prisma.race.findMany({

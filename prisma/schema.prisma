@@ -6,10 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
-
 }
 
 model Race {
@@ -41,19 +40,42 @@ model Broadcast {
 
   @@index([raceId])
   @@index([broadcastTypeId])
-
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  mail  String @db.VarChar(50)
-  pass  String @db.VarChar(50)
-  score Int    @default(1)
-  Vote  Vote[]
+  id String @id @unique
+
+  username    String @db.VarChar(50)
+  mail        String @db.VarChar(50)
+  score       Int    @default(1)
+  contry_code String @db.VarChar(10)
+
+  auth_session Session[]
+  key          Key[]
+  Vote         Vote[]
+}
+
+model Session {
+  id             String @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model Key {
+  id              String  @id @unique
+  hashed_password String?
+  user_id         String
+  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
 }
 
 model Vote {
-  UserId      Int     @map("user_id")
+  UserId      String  @map("user_id")
   BroadcastId Int     @map("broadcast_id")
   possitive   Boolean @default(false)
 
