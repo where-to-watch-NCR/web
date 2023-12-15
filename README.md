@@ -41,6 +41,8 @@ erDiagram
   BroadcastType ||--o{ Broadcast : "broadcastTypeId"
   User ||--o{ Vote : "UserId"
   Broadcast ||--o{ Vote : "BroadcastId"
+  User ||--o{ Session : "user_id"
+  User ||--o{ Key : "user_id"
 
   Race {
     id Int
@@ -64,14 +66,31 @@ erDiagram
   }
 
   User {
-    id Int
+    id String
+    username String
     mail String
-    pass String
     score Int
+    contry_code String
   }
 
   Vote {
+    UserId String
+    BroadcastId Int
     possitive Boolean
   }
+
+  Session {
+    id String
+    user_id String
+    active_expires BigInt
+    idle_expires BigInt
+  }
+
+  Key {
+    id String
+    hashed_password String
+    user_id String
+  }
+
 
 ```
