@@ -19,10 +19,10 @@ npm run dev
 npm run dev -- --open
 ```
 
-Then start a devlopment database with prisma:
+Then start a webinterface to vizualize the database:
 
 ```bash
-npx prisma db push
+npx prisma studio 
 ```
 
 ## Technologie Stack
