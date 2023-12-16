@@ -1,24 +1,34 @@
 <script lang="ts">
-	import type { PageData } from "./$types";
+	import Button from '$lib/components/Button.svelte';
+	import LinkButton from '$lib/components/LinkButton.svelte';
+import type { PageData } from './$types';
 
-
-export let data: PageData
-
+	export let data: PageData;
 </script>
-<a href="/">back</a>
-<p>me</p>
-<p>Hello 👋 {data?.user?.username}</p>
-<p>You default contry is {data?.user?.contry_code}</p>
 
-<form method="POST">
-    <h3>change default contry</h3>
-    <label for="contry_code">contry</label>
-	<input type="contry_code" id="contry_code" 
-    name="contry_code" required value="{data?.user?.contry_code}" />
-    <button  type="submit">Update</button>
-</form>
+<main class="flex flex-col gap-5 items-center w-full">
+	<div class="w-full h-10">
+		<div class="flex gap-2 p-2 ml-auto w-fit">
+			<form method="POST">
+                <Button _formaction="/auth/logout" _type="submit">Logout</Button>
+			</form>
+            <LinkButton _href="/">home</LinkButton>
+		</div>
+	</div>
+	<div class="flex flex-col gap-5 p-5 rounded-xl bg-primary-300">
+		<p class="text-2xl">Hello 👋 <span class="font-semibold">{data?.user?.username}</span></p>
 
-
-<form method="POST">
-    <button formaction="/auth/logout" type="submit">Logout</button>
-</form>
+		<form method="POST">
+			<h3>You default contry is:</h3>
+			<label for="contry_code">contry</label>
+			<input
+				type="contry_code"
+				id="contry_code"
+				name="contry_code"
+				required
+				value={data?.user?.contry_code}
+			/>
+            <Button _type="submit">Update</Button>
+		</form>
+	</div>
+</main>
