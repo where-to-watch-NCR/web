@@ -8,7 +8,7 @@ export const load: PageServerLoad  = async () => {
   try {
     const races = await prisma.race.findMany({
       orderBy: [
-        { date: 'desc' }
+        { date: 'asc' }
       ]
     });
 

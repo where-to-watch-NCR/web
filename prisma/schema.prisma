@@ -12,27 +12,27 @@ datasource db {
 }
 
 model Race {
-  id        Int         @id @default(autoincrement())
-  name      String      @db.VarChar(255)
-  contry    String      @db.VarChar(50)
-  category  String      @db.VarChar(50)
-  date      DateTime
-  Broadcast Broadcast[]
+  id           Int         @id @default(autoincrement())
+  name         String      @db.VarChar(255)
+  country_code String      @db.VarChar(50)
+  category     String      @db.VarChar(50)
+  date         DateTime
+  Broadcast    Broadcast[]
 }
 
 model BroadcastType {
   id        Int         @id @default(autoincrement())
-  code      String      @db.VarChar(5)
+  code      String      @db.VarChar(6)
   label     String      @db.VarChar(50)
   Broadcast Broadcast[]
 }
 
 model Broadcast {
-  id          Int    @id @default(autoincrement())
-  race        Race   @relation(fields: [raceId], references: [id])
-  raceId      Int
-  name        String @db.VarChar(50)
-  link        String @db.VarChar(500)
+  id           Int    @id @default(autoincrement())
+  race         Race   @relation(fields: [raceId], references: [id])
+  raceId       Int
+  name         String @db.VarChar(50)
+  link         String @db.VarChar(500)
   country_code String @db.VarChar(10)
 
   broadcastTypeId Int
@@ -47,10 +47,10 @@ model Broadcast {
 model User {
   id String @id @unique
 
-  username    String @db.VarChar(50)
-  mail        String @db.VarChar(50)
-  score       Int    @default(1)
-  country_code String? @db.VarChar(10) 
+  username     String  @db.VarChar(50)
+  mail         String  @db.VarChar(50)
+  score        Int     @default(1)
+  country_code String? @db.VarChar(10)
 
   auth_session Session[]
   key          Key[]

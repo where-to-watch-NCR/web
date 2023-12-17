@@ -14,6 +14,11 @@
   });
 </script>
 
-{#if date}
-    {deltaInDays} 
+<span class="min-w-4">
+  {#if deltaInDays}
+  {deltaInDays} 
+{:else}
+ ...
 {/if}
+
+</span>

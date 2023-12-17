@@ -5,6 +5,9 @@ export const GET: RequestHandler = async ({ params }) => {
   const { id } = params;
   console.log(id);
   try {
+    if (id === undefined) {
+      throw new Error('Missing id');
+    }
     const broadcasts = await prismaClient.broadcast.findMany({
       where: {
         raceId: parseInt(id, 10),
