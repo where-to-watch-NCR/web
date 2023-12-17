@@ -20,8 +20,8 @@
 			<label for="mail">Email</label>
 			<input type="mail" id="mail" name="mail" required />
 
-			<label for="contry_code">Contry Code</label>
-			<input type="text" id="contry_code" name="contry_code" />
+			<label for="country_code">Contry Code</label>
+			<input type="text" id="country_code" name="country_code" />
 
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username" required />

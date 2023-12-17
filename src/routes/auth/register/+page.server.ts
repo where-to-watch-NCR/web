@@ -11,7 +11,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 export const actions: Actions = {
 	default: async ({ request }) => {
-		const { mail,contry_code, username, password } = Object.fromEntries(await request.formData()) as Record<
+		const { mail,country_code, username, password } = Object.fromEntries(await request.formData()) as Record<
 			string,
 			string
 		>
@@ -25,7 +25,7 @@ export const actions: Actions = {
 				attributes: {
 					username,
                     mail,
-                    contry_code,
+                    country_code,
 				}
 			})
 		} catch (err) {
