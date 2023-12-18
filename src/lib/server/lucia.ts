@@ -15,7 +15,7 @@ export const auth = lucia({
 			userId: userData.id,
 			username: userData.username,
 			mail: userData.mail,
-			contry_code: userData.contry_code
+			country_code: userData.country_code
 		}
 	}
 })

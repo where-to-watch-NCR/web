@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async ({ request, locals }) => {
         const session = await locals.auth.validate()
-		const { contry_code } = 
+		const { country_code } = 
         Object.fromEntries(await request.formData()) as Record<
 			string,
 			string
@@ -21,7 +21,7 @@ export const actions: Actions = {
 			await auth.updateUserAttributes(
                 session.user.userId,
                 {
-                    contry_code:contry_code
+                    country_code:country_code
                 });
 		} catch (err) {
 			console.error(err)
