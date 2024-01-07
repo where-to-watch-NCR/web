@@ -1,6 +1,6 @@
 # Where to watch Next Cycling Race
 
-Here is a small project built by the community and for the community, to help us all watch our favorite race in the best condition. This is a community feed book that indexes every broadcast of a race per country.
+Here is a small project built by the community and for the community, to help us all watch our favorite race in the best condition. This is a community feed that indexes every broadcast of a race per country.
 
 Please note that this project has gained higher interest since the fall of gnc+.
 
