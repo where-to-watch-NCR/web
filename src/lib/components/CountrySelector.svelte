@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getSessionCountryCode } from '$lib/webservice/sessionContry.webservice';
 	import { onMount } from 'svelte';
 
 	export let value: string | undefined = undefined;
@@ -10,6 +11,12 @@
 	type countryDTO = { name: { common: string }; cca2: string };
 
 	const apiEndpoint = 'https://restcountries.com/v3.1/all?fields=name,cca2';
+
+	getSessionCountryCode().then((_value) => {
+		if (_value) {
+			value = _value;
+		}
+	});
 
 	//https://restcountries.com/v3.1/all?fields=name,flags,cca2
 

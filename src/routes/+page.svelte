@@ -3,6 +3,7 @@
 	import type { Race } from '@prisma/client';
 	import RaceComponent from '$lib/components/Race.svelte';
 	import DisplayFlag from '$lib/components/DisplayFlag.svelte';
+	import CountrySelector from '$lib/components/CountrySelector.svelte';
 
 	export let data: PageData;
 
@@ -12,6 +13,7 @@
 <main class="flex flex-col gap-5 items-center">
 	<div class="flex items-center w-full h-12 bg-primary-900">
 		<div class="flex gap-2 items-center ml-auto w-fit">
+			<CountrySelector />
 			<DisplayFlag country_code={data?.user?.country_code} />
 
 			<a class="px-2 ml-auto" href="/me">
